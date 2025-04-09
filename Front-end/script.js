@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('product-list');
 
    
-    const allowedEmails = ['us1@exemplo.com', 'us2@exemplo.com', 'adm@exemplo.com']; // Email Fictício
+    const allowedEmails = ['us1@example.com', 'us2@example.com', 'adm@example.com']; // Email Fictício
 
 
     loginForm.addEventListener('submit', (e) => {
