@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f6fa;
+    background-color: #ffffff;
     color: #2f3640;
 }
 
@@ -118,7 +118,7 @@ tr:hover {
 
 /* Formulário */
 form {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.758);
     padding: 25px;
     border-radius: 12px;
     width: 100%;
