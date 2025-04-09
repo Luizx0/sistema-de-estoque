@@ -5,20 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const productForm = document.getElementById('product-form');
     const productList = document.getElementById('product-list');
 
-   
-    const allowedEmails = ['us1@example.com', 'us2@example.com', 'adm@example.com']; // Email Fictício
-
+    const allowedEmails = ['us1@exemplo.com', 'us2@exemplo.com', 'adm@exemplo.com'];
+    let currentUser = '';
 
     loginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-
         if (allowedEmails.includes(email)) {
-   
-            if (password === '123') {  // Senha fictícia
+            if (password === 'senha123') {
+                currentUser = email;
                 loginContainer.style.display = 'none';
                 dashboardContainer.style.display = 'block';
             } else {
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('E-mail não autorizado!');
         }
     });
-
 
     productForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -40,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const productColor = document.getElementById('product-color').value;
 
         const newProductRow = document.createElement('tr');
+
         newProductRow.innerHTML = `
             <td>${productName}</td>
             <td>${productBrand}</td>
@@ -47,11 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${productQuantity}</td>
             <td>${productPrice}</td>
             <td>${productColor}</td>
-            <td><button>Editar</button></td>
+            <td>
+                ${currentUser === 'adm@exemplo.com' ? `
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Excluir</button>
+                ` : ''}
+            </td>
         `;
+
+        if (currentUser === 'adm@exemplo.com') {
+            newProductRow.querySelector('.edit-btn').addEventListener('click', () => {
+                const cells = newProductRow.querySelectorAll('td');
+                document.getElementById('product-name').value = cells[0].textContent;
+                document.getElementById('product-brand').value = cells[1].textContent;
+                document.getElementById('product-size').value = cells[2].textContent;
+                document.getElementById('product-quantity').value = cells[3].textContent;
+                document.getElementById('product-price').value = cells[4].textContent;
+                document.getElementById('product-color').value = cells[5].textContent;
+
+                productList.removeChild(newProductRow);
+            });
+
+            newProductRow.querySelector('.delete-btn').addEventListener('click', () => {
+                productList.removeChild(newProductRow);
+            });
+        }
+
         productList.appendChild(newProductRow);
-
-
         productForm.reset();
     });
 });
