@@ -1,4 +1,4 @@
-/* Reset de estilos básicos */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +9,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f6fa;
     color: #2f3640;
-    line-height: 1.6;
 }
 
-/* Cabeçalho genérico */
 h1, h2 {
     text-align: center;
     color: #192a56;
     margin-bottom: 20px;
 }
 
-/* Tela de login */
+/* Login */
 .login-container {
     height: 100vh;
     display: flex;
@@ -39,14 +37,16 @@ h1, h2 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.login-container label {
+.login-container label,
+form label {
     font-weight: bold;
     font-size: 14px;
     display: block;
     margin-bottom: 5px;
 }
 
-.login-container input {
+.login-container input,
+form input {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
@@ -55,7 +55,8 @@ h1, h2 {
     font-size: 14px;
 }
 
-.login-container button {
+.login-container button,
+form button {
     width: 100%;
     padding: 12px;
     background-color: #192a56;
@@ -68,14 +69,15 @@ h1, h2 {
     transition: background 0.3s;
 }
 
-.login-container button:hover {
+.login-container button:hover,
+form button:hover {
     background-color: #273c75;
 }
 
-/* Dashboard geral */
+/* Dashboard */
 .dashboard-container {
+    display: none;
     padding: 40px 20px;
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -85,8 +87,7 @@ h1, h2 {
     font-size: 24px;
 }
 
-/* Tabela de produtos */
-.dashboard-container table {
+table {
     width: 100%;
     max-width: 1000px;
     border-collapse: collapse;
@@ -94,62 +95,34 @@ h1, h2 {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-.dashboard-container th,
-.dashboard-container td {
+th, td {
     padding: 16px;
     text-align: center;
     border-bottom: 1px solid #eee;
     font-size: 14px;
 }
 
-.dashboard-container th {
+th {
     background-color: #192a56;
     color: white;
     text-transform: uppercase;
     font-size: 13px;
 }
 
-.dashboard-container tr:hover {
+tr:hover {
     background-color: #f1f2f6;
 }
 
-/* Botões de ação */
-.dashboard-container button {
-    padding: 8px 16px;
-    background-color: #44bd32;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-size: 13px;
-}
-
-.dashboard-container button:hover {
-    background-color: #4cd137;
-}
-
-/* Formulário de cadastro de produtos */
+/* Formulário */
 form {
     background-color: white;
     padding: 25px;
     border-radius: 12px;
-    margin-top: 30px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 18px
-}
+    box-shadow: 0 0 12px rgba(0, 0, 0,0.1);
+    margin-bottom: 30px;  
+  }

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (allowedEmails.includes(email)) {
    
-            if (password === 'senha123') {  // Senha fictícia
+            if (password === '123') {  // Senha fictícia
                 loginContainer.style.display = 'none';
                 dashboardContainer.style.display = 'block';
             } else {
